@@ -1,13 +1,13 @@
 package entities;
 
 public class Mapa {
-    private final int TAM = 16;
-    private String[][] tabuleiro = new String[TAM][TAM];
+    private final int TAMANHO_TABULEIRO = 24;
+    private String[][] tabuleiro = new String[TAMANHO_TABULEIRO][TAMANHO_TABULEIRO];
 
     public void initTabuleiro() {
         for (int i=0; i<tabuleiro.length; i++) {
             for (int j=0; j<tabuleiro[i].length; j++) {
-                tabuleiro[i][j] = "O";
+                tabuleiro[i][j] = " ";
             }
         }
     }
@@ -20,5 +20,9 @@ public class Mapa {
             }
             System.out.println();
         }
+    }
+
+    public String[][] getTabuleiro() {
+        return tabuleiro;
     }
 }
