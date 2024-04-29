@@ -3,7 +3,7 @@ package entities;
 import java.util.Random;
 
 public class Jogo {
-    private final int TAMANHO_TABULEIRO = 24;
+    private final int TAMANHO_TABULEIRO = 16;
     private Mapa mapa;
     private Random random;
 
@@ -23,7 +23,7 @@ public class Jogo {
             portaAviao, portaAviao,
             destroyer, destroyer, destroyer,
             submarino, submarino, submarino, submarino,
-            fragata, fragata, fragata, fragata,
+            fragata, fragata, fragata, fragata, fragata,
             bote, bote, bote, bote, bote, bote};
 
         mapa.initTabuleiro();
@@ -56,10 +56,10 @@ public class Jogo {
         }
 
         for (int i = 0; i < tamanho; i++) {
-            if (horizontal && mapa.getTabuleiro()[linha][coluna + i] != " ") {
+            if (horizontal && mapa.getTabuleiro()[linha][coluna + i] != ",") {
                 return false;
             }
-            if (!horizontal && mapa.getTabuleiro()[linha + i][coluna] != " ") {
+            if (!horizontal && mapa.getTabuleiro()[linha + i][coluna] != ",") {
                 return false;
             }
         }
