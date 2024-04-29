@@ -1,6 +1,7 @@
 package entities;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class Jogo {
     private final int TAMANHO_TABULEIRO = 16;
@@ -13,6 +14,7 @@ public class Jogo {
     }
 
     public void Jogar() {
+        Scanner sc = new Scanner(System.in);
         PortaAviao portaAviao = new PortaAviao("A", 8);
         Destroyer destroyer = new Destroyer("D", 5);
         Submarino submarino = new Submarino("S", 4);
@@ -24,11 +26,38 @@ public class Jogo {
             destroyer, destroyer, destroyer,
             submarino, submarino, submarino, submarino,
             fragata, fragata, fragata, fragata, fragata,
-            bote, bote, bote, bote, bote, bote};
+            bote, bote, bote, bote, bote, bote
+        };
+
+        Jogador jogador1 = new Jogador(0);
+        Jogador jogador2 = new Jogador(0);
 
         mapa.initTabuleiro();
         posicionarEmbarcacoes(embarcacoes);
         mapa.printTabuleiro();
+
+       int linha, coluna;
+
+        do {
+            System.out.println("Insira as coordenadas do ataque:");
+            linha = sc.nextInt();
+            coluna = sc.nextInt();
+       
+            if (linha < 0 || linha >= TAMANHO_TABULEIRO || coluna < 0 || coluna >= TAMANHO_TABULEIRO) {
+                System.out.println("Coordenadas inválidas. Por favor, insira novamente.");
+            }
+        } while (linha < 0 || linha >= TAMANHO_TABULEIRO || coluna < 0 || coluna >= TAMANHO_TABULEIRO);
+       
+        if (mapa.getTabuleiro()[linha][coluna] != ",") {
+            mapa.getTabuleiro()[linha][coluna] = "X";
+        } else {
+            mapa.getTabuleiro()[linha][coluna] = "V";
+        }
+           
+
+        mapa.printTabuleiro();
+
+        sc.close();
     }
     
     private void posicionarEmbarcacao(Embarcacao embarcacao, int linha, int coluna, boolean horizontal) {
