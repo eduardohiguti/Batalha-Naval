@@ -17,13 +17,14 @@ public class Jogo {
     }
 
     public Jogo(int quantidade) {
+        this();
         this.quantidadeJogadores = quantidade;
     }
 
     public boolean Jogar(Jogador jogador, Jogador jogadorInimigo) {
         int linha, coluna;
         while (true) {
-            System.out.println("1. " + jogadorInimigo.getNome() + " deseja ver o seu tabuleiro?\n2. Ataque!!!\nOpção:");
+            System.out.println("1. " + jogadorInimigo.getNome() + ", deseja ver o seu tabuleiro?\n2. Ataque!!!\nOpção:");
             int opcao = sc.nextInt();
             if (opcao == 1) {
                 jogadorInimigo.printMapa();
@@ -177,8 +178,8 @@ public class Jogo {
 
     private void CriaPlayers() {
         for (int i = 0; i < this.quantidadeJogadores; i++) {
-            System.out.print("Nome do " + (i + 1) + "* jogador: ");
-            String nome = sc.next();
+            System.out.print("Nome do " + (i + 1) + "º jogador: ");
+            String nome = sc.nextLine();
             Jogador jogador = new Jogador(0, nome);
             this.jogadores.add(jogador);
         }

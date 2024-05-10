@@ -21,14 +21,7 @@ public class Jogador {
     public Submarino submarino;
     public Fragata fragata;
     public Bote bote;
-
-    public Embarcacao[] embarcacoes = {
-            portaAviao, portaAviao,
-            destroyer, destroyer, destroyer,
-            submarino, submarino, submarino, submarino,
-            fragata, fragata, fragata, fragata, fragata,
-            bote, bote, bote, bote, bote, bote
-    };
+    public Embarcacao[] embarcacoes;
 
     public Jogador() {
         mapa = new Mapa();
@@ -44,13 +37,21 @@ public class Jogador {
         submarino = new Submarino("S", 4);
         fragata = new Fragata("F", 3);
         bote = new Bote("B", 2);
+        mapa.initTabuleiro("V");
+        mapaInimigo.initTabuleiro("O");
+        embarcacoes = new Embarcacao[] {
+            portaAviao, portaAviao,
+            destroyer, destroyer, destroyer,
+            submarino, submarino, submarino, submarino,
+            fragata, fragata, fragata, fragata, fragata,
+            bote, bote, bote, bote, bote, bote
+        };
     }
 
-    public Jogador(int pontuacao, String NOME) {
+    public Jogador(int pontuacao, String nome) {
+        this();
         this.pontuacao = pontuacao;
-        this.nome = NOME;
-        this.mapa.initTabuleiro("V");
-        this.mapaInimigo.initTabuleiro("O");
+        this.nome = nome;
     }
 
     public void arruma() {
