@@ -22,19 +22,19 @@ public class Embarcacao {
     }
 }
 
-class PortaAviao extends Embarcacao { 
+class PortaAviao extends Embarcacao {
     public PortaAviao(String name, int tamanho) { // 2 unidades
         super(name, tamanho);
     }
 }
 
-class Destroyer extends Embarcacao { 
+class Destroyer extends Embarcacao {
     public Destroyer(String name, int tamanho) { // 3 unidades
         super(name, tamanho);
     }
 }
 
-class Submarino extends Embarcacao { 
+class Submarino extends Embarcacao {
     public Submarino(String name, int tamanho) { // 4 unidades
         super(name, tamanho);
     }
